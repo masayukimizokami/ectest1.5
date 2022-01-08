@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'products/index'
-  get 'products/show'
+  get 'potepan/products/index', to: 'products#index'
+  get 'potepan/products/:id', to: 'products#show'
+  
 mount SolidusPaypalCommercePlatform::Engine, at: '/solidus_paypal_commerce_platform'
   # This line mounts Solidus's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
