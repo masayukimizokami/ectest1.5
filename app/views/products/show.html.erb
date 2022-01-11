@@ -1,46 +1,6 @@
 <div class="user-show-main">
     <div class="user-show-wrap">
-          <h1>商品詳細ページ</h1>
-
-         　　　 </div> <div class="field">　
-                <tr>
-                  <th>id</th>
-                  <td><%= @product.id %></td>
-                </tr>
-              </div>
-
-              </div> <div class="field">　
-                <tr>
-                  <th>写真</th>
-                  <td><%= image_tag @product.images %></td>
-                </tr>
-              </div>
-          
-              <div class="field">　
-                  <th>商品名</th>
-                  <td><%= @product.name %></td>
-                </tr>
-              </div>
-              <div class="field">　
-                <tr>
-                  <th>説明</th>
-                  <td><%= @product.description %></td>
-                </tr>
-              </div>
-               <div class="field">　
-                <tr>
-                  <th>金額</th>
-                  <td><%= @price.amount %></td>
-                </tr>
-              
-              
-              </table>
-          
-              
-    </div>
-</div>
-
-<!--ここからコピー-->
+         
  <!-- LIGHT SECTION -->
       <section class="lightSection clearfix pageHeader">
         <div class="container">
@@ -53,7 +13,8 @@
             <div class="col-xs-6">
               <ol class="breadcrumb pull-right">
                 <li>
-                  <a href="index.html">Home</a>
+                  <%= link_to "Home",potepan_index_path %>
+                  <a href="potepan/index.html">Home</a>
                 </li>
                 <li class="active"><%= @product.name %></li>
               </ol>
@@ -72,26 +33,30 @@
                   <div id="carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="item active" data-thumb="0">
-                        <%= image_tag '/assets/product.jpg' %><!---->
+                        <%= image_tag @product.display_image.attachment(:large) %>
                       </div>
                       <div class="item" data-thumb="1">
-                        <%= image_tag("img/products/signle-product/product-slide-big-02.jpg") %>
+                        <%= image_tag @product.display_image.attachment(:small) %>
                       </div>
                       <div class="item" data-thumb="2">
-                        <%= image_tag("img/products/signle-product/product-slide-big-03.jpg") %>
+                        <%= image_tag @product.display_image.attachment(:small) %>
                       </div>
                       <div class="item" data-thumb="3">
-                        <%= image_tag("img/products/signle-product/product-slide-big-04.jpg") %>
+                       <%= image_tag @product.display_image.attachment(:small) %>
                       </div>
                     </div>
                   </div>
                   <div class="clearfix">
                     <div id="thumbcarousel" class="carousel slide" data-interval="false">
                       <div class="carousel-inner">
-                          <div data-target="#carousel" data-slide-to="0" class="thumb"><%= image_tag("img/products/signle-product/product-slide-small-01.jpg") %></div>
-                          <div data-target="#carousel" data-slide-to="1" class="thumb"><%= image_tag("img/products/signle-product/product-slide-small-02.jpg") %></div>
-                          <div data-target="#carousel" data-slide-to="2" class="thumb"><%= image_tag("img/products/signle-product/product-slide-small-03.jpg") %></div>
-                          <div data-target="#carousel" data-slide-to="3" class="thumb"><%= image_tag("img/products/signle-product/product-slide-small-04.jpg") %></div>
+                          <div class="thumb-wrap">
+                            <div data-target="#carousel" data-slide-to="0" class="thumb">
+                           
+                              <% @product.variant_images.each do |image| %>
+                                  <%= image_tag image.attachment.url %>
+                              <% end %>
+                            </div>
+                          </div>
                       </div>
                       <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -213,4 +178,10 @@
             </div>
           </div>
         </div>
+
+       
+    <th>写真</th>
+                   <% @product.variant_images.each do |image| %>
+                      <%= image_tag image.attachment.url %>
+                  <% end %>
       </section>
