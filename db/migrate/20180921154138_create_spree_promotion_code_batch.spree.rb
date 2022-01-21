@@ -1,6 +1,7 @@
 # This migration comes from spree (originally 20161017102621)
 # frozen_string_literal: true
 
+# CreateSpreePromotionCodeBatch
 class CreateSpreePromotionCodeBatch < ActiveRecord::Migration[5.0]
   def change
     create_table :spree_promotion_code_batches do |t|
@@ -9,7 +10,7 @@ class CreateSpreePromotionCodeBatch < ActiveRecord::Migration[5.0]
       t.integer :number_of_codes, null: false
       t.string :email
       t.string :error
-      t.string :state, default: "pending"
+      t.string :state, default: 'pending'
       t.timestamps precision: 6
     end
 

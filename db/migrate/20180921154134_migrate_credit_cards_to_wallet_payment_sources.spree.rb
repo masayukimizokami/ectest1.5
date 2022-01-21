@@ -1,18 +1,21 @@
 # This migration comes from spree (originally 20160420181916)
 # frozen_string_literal: true
 
+# MigrateCreditCardsToWalletPaymentSources
 class MigrateCreditCardsToWalletPaymentSources < ActiveRecord::Migration[4.2]
+  # CreditCard
   class CreditCard < ActiveRecord::Base
     self.table_name = 'spree_credit_cards'
   end
+  # WalletPaymentSource
   class WalletPaymentSource < ActiveRecord::Base
     self.table_name = 'spree_wallet_payment_sources'
   end
 
   def up
-    credit_cards = CreditCard.
-      where.not(gateway_customer_profile_id: nil).
-      where.not(user_id: nil)
+    credit_cards = CreditCard
+                   .where.not(gateway_customer_profile_id: nil)
+                   .where.not(user_id: nil)
 
     credit_cards.find_each do |credit_card|
       WalletPaymentSource.find_or_create_by!(
@@ -24,7 +27,5 @@ class MigrateCreditCardsToWalletPaymentSources < ActiveRecord::Migration[4.2]
       end
     end
   end
-
-  def down
-  end
+  def down; end
 end

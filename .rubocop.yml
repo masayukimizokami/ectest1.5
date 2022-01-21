@@ -1,0 +1,30 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+# 文字数上限
+LineLength:
+  Max: 350
+
+#以下にはrubocopで検証したくないフォルダを指定する
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'config/spring.rb'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'
+    - 'app/models/spree/products.rb'
+    - 'Gemfile'
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+  #追加
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
+
 # This migration comes from spree (originally 20180416083007)
 
+# AddApplyToAllToVariantPropertyRule
 class AddApplyToAllToVariantPropertyRule < ActiveRecord::Migration[5.1]
   def up
     add_column :spree_variant_property_rules, :apply_to_all, :boolean, default: false, null: false

@@ -1,6 +1,7 @@
 # This migration comes from spree (originally 20180202222641)
 # frozen_string_literal: true
 
+# CreateStoreShippingMethods
 class CreateStoreShippingMethods < ActiveRecord::Migration[5.1]
   def change
     create_table :spree_store_shipping_methods do |t|

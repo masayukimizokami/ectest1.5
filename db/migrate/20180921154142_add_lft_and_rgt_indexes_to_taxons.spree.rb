@@ -1,6 +1,7 @@
 # This migration comes from spree (originally 20170317035819)
 # frozen_string_literal: true
 
+# AddLftAndRgtIndexesToTaxons
 class AddLftAndRgtIndexesToTaxons < ActiveRecord::Migration[5.0]
   def change
     add_index :spree_taxons, :lft

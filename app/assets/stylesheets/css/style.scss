@@ -2853,10 +2853,6 @@ body.bodyColor.container {
 .singleProduct .media .productSlider #carousel .item img {
   width: 100%;
 }
-.thumb-wrap{
-  display: flex;
-  flex-wrap: wrap;
-}
 .singleProduct .media .productSlider #thumbcarousel .thumb {
   width: 23.35%;
   cursor: pointer;
@@ -2867,8 +2863,6 @@ body.bodyColor.container {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-
-
 @media (max-width: 479px) {
   .singleProduct .media .productSlider #thumbcarousel .thumb {
     margin-right: 2.1%;

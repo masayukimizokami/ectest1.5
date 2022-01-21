@@ -1,6 +1,7 @@
 # This migration comes from spree (originally 20170608074534)
 # frozen_string_literal: true
 
+# RenameBogusGateways
 class RenameBogusGateways < ActiveRecord::Migration[5.0]
   def up
     require 'solidus/migrations/rename_gateways'

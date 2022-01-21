@@ -1,6 +1,7 @@
 # This migration comes from spree (originally 20180202190713)
 # frozen_string_literal: true
 
+# CreatePromotionRuleStores
 class CreatePromotionRuleStores < ActiveRecord::Migration[5.1]
   def change
     create_table :spree_promotion_rules_stores do |t|

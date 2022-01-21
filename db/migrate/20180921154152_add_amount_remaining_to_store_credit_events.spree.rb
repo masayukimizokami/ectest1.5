@@ -1,7 +1,9 @@
 # This migration comes from spree (originally 20180322142651)
 # frozen_string_literal: true
 
+# AddAmountRemainingToStoreCreditEvents
 class AddAmountRemainingToStoreCreditEvents < ActiveRecord::Migration[5.0]
+  # StoreCredit
   class StoreCredit < ActiveRecord::Base
     self.table_name = 'spree_store_credits'
     has_many :store_credit_events
@@ -16,8 +18,9 @@ class AddAmountRemainingToStoreCreditEvents < ActiveRecord::Migration[5.0]
     INVALIDATE_ACTION = 'invalidate'
   end
 
+  # StoreCreditEvent
   class StoreCreditEvent < ActiveRecord::Base
-    self.table_name = "spree_store_credit_events"
+    self.table_name = 'spree_store_credit_events'
     belongs_to :store_credit
 
     scope :chronological, -> { order(:created_at) }
